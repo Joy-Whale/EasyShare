@@ -119,4 +119,5 @@ bintray {
 }
 
 // 使用方法
+// gradlew install
 // gradlew bintrayUpload

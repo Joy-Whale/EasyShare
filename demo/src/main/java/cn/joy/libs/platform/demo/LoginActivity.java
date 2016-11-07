@@ -12,6 +12,9 @@ import cn.joy.libs.platform.PlatformAuthInfo;
 
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import cn.joy.libs.platform.Share;
+import cn.joy.libs.platform.ShareBuilder;
+import cn.joy.libs.platform.ShareParams;
 
 /**
  * User: JiYu
