@@ -8,14 +8,47 @@
 `compile 'cn.joy.libs:platform:1.0.1'`
 
 ##使用方法
-1.在Application onCreate()中添加Library初始化
+1.在主package下添加微信必要的回调Activity,**需继承自cn.joy.libs.platform.wechat.WXEntryActivity**
+
+  若不使用微信授权和分享可跳过此部
+
+2.在AndroidManifest.xml中添加QQ和微信配置
+
+  若不使用微信、QQ授权和分享可跳过此部
+
+<!-- 微信以及QQ平台activity -->
+        <!-- 微信以及QQ平台activity -->
+        <!-- 微信以及QQ平台activity -->
+        <activity
+            android:name=".wxapi.WXEntryActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:exported="true"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+
+        <activity
+            android:name="com.tencent.tauth.AuthActivity"
+            android:launchMode="singleTask"
+            android:noHistory="true"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+
+                <data android:scheme="tencent${QQ_KEY}"/>
+            </intent-filter>
+        </activity>
+
+3.在Application onCreate()中添加Library初始化
 
     PlatformManager.init(this)
  	  .register(PlatformFactory.createWechat("你的微信 key", "你的微信 secret key"))
  	  .register(PlatformFactory.createQQ("你的QQ key", "你的QQ secret key"))
  	  .register(PlatformFactory.createSina("你的微博 key", "你的微博 secret key", "你的微博跳转 target url"));
 
-2.授权登录
+4.授权登录
 
     PlatformActionListener<WechatAuthInfo> listener = new PlatformActionListener<WechatAuthInfo>() {
         /**
@@ -47,7 +80,7 @@
 		
     new AuthBuilder().authTo(Auth.Target.Wechat).listener(listener).auth();
 
-3.分享
+5.分享
 
     private PlatformActionListener listener = new PlatformActionListener() {
 	    /**
