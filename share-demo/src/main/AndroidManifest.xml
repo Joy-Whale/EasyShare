@@ -1,0 +1,56 @@
+<manifest package="cn.joy.libs.platform.demo"
+          xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <application
+        android:name=".SimpleApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+
+        <activity android:name=".MainActivity">
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".LoginActivity"/>
+        <activity android:name=".LogoutActivity"/>
+        <activity android:name=".ShareActivity"/>
+
+
+        <!-- 微信以及QQ平台activity -->
+        <!-- 微信以及QQ平台activity -->
+        <!-- 微信以及QQ平台activity -->
+        <activity
+            android:name=".wxapi.WXEntryActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:exported="true"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+
+        <activity
+            android:name="com.tencent.tauth.AuthActivity"
+            android:launchMode="singleTask"
+            android:noHistory="true"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+
+                <data android:scheme="tencent${QQ_KEY}"/>
+            </intent-filter>
+        </activity>
+
+        <!--微信以及QQ平台activity over-->
+        <!--微信以及QQ平台activity over-->
+        <!--微信以及QQ平台activity over-->
+
+    </application>
+
+</manifest>

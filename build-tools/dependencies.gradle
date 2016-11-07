@@ -1,0 +1,116 @@
+allprojects {
+    repositories {
+        jcenter()
+    }
+}
+
+ext {
+    //  android
+    androidSupportLibraryVersion = '24.2.0'
+    gradleVersion = '2.2.0-alpha6'
+
+    //  libraries
+    buglyVersion = '2.2.2'
+    buglyNativeVersion = '3.0'
+    butterKnifeVersion = '8.4.0'
+    butterKnifeClassVersion = '1.8'
+    canRefreshVersion = '1.0.5'
+    canRefreshRecyclerVersion = '1.0.4'
+    daggerVersion = '2.7'
+    diskCacheVersion = '2.0.2'
+    fastJsonVersion = '1.2.15'
+    glideVersion = '3.6.1'
+    glideTransformVersion = '1.0.8'
+    greenDaoVersion = '2.1.0'
+    ijkPlayerVersion = '0.6.0'
+    javaxAnnotationVersion = '1.0'
+    javaxInjectVersion = '1'
+    loggerVersion = '1.15'
+    materialDesignVersion = '1.2.4'
+    nineOldVersion = '2.4.0'
+    pingPlusVersion = '2.1.+'
+    recyclerDividerVersion = '1.4.0'
+    recyclerSectionVersion = '1.2.3.7'
+    retrofitVersion = '2.1.0'
+    retrofitRxJavaVersion = '2.1.0'
+    retrofitFastJsonVersion = '2.1.0'
+    retrolambdaVersion = '2.3.0'
+    //  路由功能- activity跳转等
+    routerVersion = '1.2.6'
+    rxAndroidVersion = '1.1.0'
+    rxJavaVersion = '1.1.5'
+    switchButtonVersion = '1.4.2'
+    swipeBackVersion = '3.1.2'
+    ultraPtrVersion = '1.0.11'
+    viewPagerIndicatorVersion = '2.4.1'
+    convenientbanner = '2.0.5'
+    zxingVersion = '3.2.1'
+    ninegridimageview = '1.0.2'
+    trustyDependencies = [
+            bugly              : "com.tencent.bugly:crashreport:${buglyVersion}",
+            buglyNative        : "com.tencent.bugly:nativecrashreport:${buglyNativeVersion}",
+            butterKnife        : "com.jakewharton:butterknife:${butterKnifeVersion}",
+            butterKnifeCompiler: "com.jakewharton:butterknife-compiler:${butterKnifeVersion}",
+            canRefresh         : "com.canyinghao:canrefresh:${canRefreshVersion}",
+            canRefreshRecycler : "com.canyinghao:canrecyclerview:${canRefreshRecyclerVersion}",
+            convenientbanner   : "com.bigkoo:convenientbanner:${convenientbanner}",
+            dagger             : "com.google.dagger:dagger:${daggerVersion}",
+            daggerCompiler     : "com.google.dagger:dagger-compiler:${daggerVersion}",
+            diskCache          : "com.jakewharton:disklrucache:${diskCacheVersion}",
+            fastJson           : "com.alibaba:fastjson:${fastJsonVersion}",
+            glide              : "com.github.bumptech.glide:glide:${glideVersion}",
+            glide_transform    : "jp.wasabeef:glide-transformations:${glideTransformVersion}",
+            greendao           : "de.greenrobot:greendao:${greenDaoVersion}",
+            greendao_generator : "de.greenrobot:greendao-generator:${greenDaoVersion}",
+            ijkPlayer_java     : "tv.danmaku.ijk.media:ijkplayer-java:${ijkPlayerVersion}",
+            ijkPlayer_armv7a   : "tv.danmaku.ijk.media:ijkplayer-armv7a:${ijkPlayerVersion}",
+            ijkPlayer_arm64    : "tv.danmaku.ijk.media:ijkplayer-arm64:${ijkPlayerVersion}",
+            ijkPlayer_x86      : "tv.danmaku.ijk.media:ijkplayer-x86:${ijkPlayerVersion}",
+            ijkPlayer_x86_64   : "tv.danmaku.ijk.media:ijkplayer-x86_64:${ijkPlayerVersion}",
+            javaxInject        : "javax.inject:javax.inject:${javaxInjectVersion}",
+            javaxAnnotation    : "javax.annotation:jsr250-api:${javaxAnnotationVersion}",
+            logger             : "com.orhanobut:logger:${loggerVersion}",
+            materialDesign     : "com.github.rey5137:material:${materialDesignVersion}",
+            ninegridimageview  : "com.jaeger.ninegridimageview:library:${ninegridimageview}",
+            recyclerDivider    : "com.yqritc:recyclerview-flexibledivider:${recyclerDividerVersion}",
+            recyclerSection    : "com.oushangfeng:PinnedSectionItemDecoration:${recyclerSectionVersion}",
+            nineOld            : "com.nineoldandroids:library:${nineOldVersion}",
+            pingPlus           : "com.pingxx:pingpp-core:${pingPlusVersion}",
+            pingPlus_alipay    : "com.pingxx:pingpp-alipay:${pingPlusVersion}",
+            pingPlus_wxpay     : "com.pingxx:pingpp-wxpay:${pingPlusVersion}",
+            retrofit           : "com.squareup.retrofit2:retrofit:${retrofitVersion}",
+            retrofit_rxjava    : "com.squareup.retrofit2:adapter-rxjava:${retrofitRxJavaVersion}",
+            retrofit_fastJson  : "org.ligboy.retrofit2:converter-fastjson-android:${retrofitFastJsonVersion}",
+            retrolambda        : "net.orfjackal.retrolambda:retrolambda:${retrolambdaVersion}",
+            router             : "com.github.campusappcn.AndRouter:router:${routerVersion}",
+            routerCompiler     : "com.github.campusappcn.AndRouter:compiler:${routerVersion}",
+            rxAndroid          : "io.reactivex:rxandroid:${rxAndroidVersion}",
+            rxJava             : "io.reactivex:rxjava:${rxJavaVersion}",
+            switchButton       : "com.kyleduo.switchbutton:library:${switchButtonVersion}",
+            swipeBack          : "com.jude:swipebackhelper:${swipeBackVersion}",
+            ultraPtr           : "in.srain.cube:ultra-ptr:${ultraPtrVersion}",
+            viewPagerIndicator : "com.github.JakeWharton:ViewPagerIndicator:${viewPagerIndicatorVersion}",
+            zxing              : "com.google.zxing:core:${zxingVersion}",
+    ]
+
+    //  第三方框架系列
+
+    //  安卓SupportLibrary系列
+    androidSupportDependencies = [
+            annotations   : "com.android.support:support-annotations:${androidSupportLibraryVersion}",
+            appcompat_v4  : "com.android.support:support-v4:${androidSupportLibraryVersion}",
+            appcompat_v7  : "com.android.support:appcompat-v7:${androidSupportLibraryVersion}",
+            cardview      : "com.android.support:cardview-v7:${androidSupportLibraryVersion}",
+            design        : "com.android.support:design:${androidSupportLibraryVersion}",
+            gridlayout    : "com.android.support:gridlayout-v7:${androidSupportLibraryVersion}",
+            percentlayout : "com.android.support:percent:${androidSupportLibraryVersion}",
+            recyclerview  : "com.android.support:recyclerview-v7:${androidSupportLibraryVersion}",
+            vector        : "com.android.support:support-vector-drawable:${androidSupportLibraryVersion}",
+            vectorAnimated: "com.android.support:animated-vector-drawable:${androidSupportLibraryVersion}",
+    ]
+
+    classPaths = [
+            butterKnife: "com.neenbedankt.gradle.plugins:android-apt:${butterKnifeClassVersion}",
+            gradle     : "com.android.tools.build:gradle:${gradleVersion}",
+    ]
+}

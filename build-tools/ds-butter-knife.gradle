@@ -1,0 +1,9 @@
+//apply plugin: 'android-apt'   for gradle version < 2.2.0
+apply plugin: 'android-apt'
+
+dependencies {
+    def trustyDependencies = rootProject.ext.trustyDependencies
+    compile trustyDependencies.butterKnife
+    apt trustyDependencies.butterKnifeCompiler
+//    annotationProcessor trustyDependencies.butterKnifeApt
+}

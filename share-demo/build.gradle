@@ -1,0 +1,36 @@
+apply plugin: 'com.android.application'
+
+apply from: '../build-tools/app-config-android.gradle'
+apply from: '../build-tools/ds-android-support.gradle'
+apply from: '../build-tools/ds-butter-knife.gradle'
+apply from: '../build-tools/ds-test.gradle'
+
+android {
+    def buildConfig = rootProject.extensions.getByName("ext")
+    defaultConfig {
+        applicationId buildConfig.getAt("applicationId")
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        multiDexEnabled true
+
+        buildConfigField("String", "PLATFOMR_QQ_KEY", '"' + buildConfig.getAt("platformQQKey") + '"');
+        buildConfigField("String", "PLATFOMR_QQ_SERCET_KEY", '"' + buildConfig.getAt("platformQQSecretKey") + '"');
+        buildConfigField("String", "PLATFOMR_WECHAT_KEY", '"' + buildConfig.getAt("platformWechatKey") + '"');
+        buildConfigField("String", "PLATFOMR_WECHAT_SERCET_KEY", '"' + buildConfig.getAt("platformWechatSecretKey") + '"');
+        buildConfigField("String", "PLATFOMR_SINA_KEY", '"' + buildConfig.getAt("platfomrSinaKey") + '"');
+        buildConfigField("String", "PLATFOMR_SINA_SERCET_KEY", '"' + buildConfig.getAt("platformSinaSecretKey") + '"');
+        buildConfigField("String", "PLATFOMR_SINA_TARGET_URL", '"' + buildConfig.getAt("platformSinaTargetUrl") + '"');
+        // QQ manifest配置值
+        manifestPlaceholders = [QQ_KEY: '"' + buildConfigFields.get("PLATFOMR_QQ_KEY") + '"']
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    compile project(':share-library')
+}
