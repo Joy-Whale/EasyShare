@@ -10,11 +10,11 @@
 ##使用方法
 1.在主package下添加微信必要的回调Activity,**需继承自cn.joy.libs.platform.wechat.WXEntryActivity**
 
-  若不使用微信授权和分享可跳过此部
+   _若不使用微信授权和分享可跳过此步骤_
 
 2.在AndroidManifest.xml中添加QQ和微信配置
 
-  若不使用微信、QQ授权和分享可跳过此部
+   _若不使用微信、QQ授权和分享可跳过此步骤_
 
 <!-- 微信以及QQ平台activity -->
         <!-- 微信以及QQ平台activity -->
