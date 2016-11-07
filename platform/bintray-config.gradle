@@ -31,9 +31,7 @@ def bintrayApikey = properties.getProperty("bintray.apikey")
 def javadocName = properties.getProperty("javadoc.name")
 
 group = properties.getProperty("project.groupId")
-
-def siteUrl = properties.getProperty("project.siteUrl")   // 项目的主页
-def gitUrl = properties.getProperty("project.gitUrl")   // Git仓库的url
+version = projectVersionName
 
 // This generates POM.xml with proper parameters
 install {

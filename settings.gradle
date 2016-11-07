@@ -1,1 +1,1 @@
-include ':share-demo', ':share-library'
+include ':demo', ':platform'
