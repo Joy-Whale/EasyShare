@@ -114,6 +114,8 @@ bintray {
         websiteUrl = projectSiteUrl
         vcsUrl = projectGitUrl
         licenses = ["Apache-2.0"]
+        labels = ['android']
         publish = true
+        publicDownloadNumbers = true
     }
 }
