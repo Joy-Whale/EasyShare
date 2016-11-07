@@ -8,49 +8,44 @@ compile 'cn.joy.libs:platform:1.0.6'
 
 ##使用方法
 1.在Application onCreate()中添加Library初始化
-`
-    PlatformManager.init(this)
+`  PlatformManager.init(this)
  				.register(PlatformFactory.createWechat("你的微信 key", "你的微信 secret key"))
  				.register(PlatformFactory.createQQ("你的QQ key", "你的QQ secret key"))
- 				.register(PlatformFactory.createSina("你的微博 key", "你的微博 secret key", "你的微博跳转 target url"));
-`
+ 				.register(PlatformFactory.createSina("你的微博 key", "你的微博 secret key", "你的微博跳转 target url"));`
 
 2.授权登录
-`
-    PlatformActionListener<WechatAuthInfo> listener = new PlatformActionListener<WechatAuthInfo>() {
-			/**
-			 * 授权成功
-			 * @param wechatAuthInfo 微信授权用户信息
-			 */
-			@Override
-			public void onComplete(WechatAuthInfo wechatAuthInfo) {
-
-			}
-
-			/**
-			 * 授权出错
-			 * @param errorCode 错误码{@link cn.joy.libs.platform.ErrorCode}
-			 */
-			@Override
-			public void onError(int errorCode) {
-
-			}
-
-			/**
-			 * 用户取消
-			 */
-			@Override
-			public void onCancel() {
-
-			}
-		};
+`  PlatformActionListener<WechatAuthInfo> listener = new PlatformActionListener<WechatAuthInfo>() {
+        /**
+         * 授权成功
+         * @param wechatAuthInfo 微信授权用户信息
+         */
+        @Override
+        public void onComplete(WechatAuthInfo wechatAuthInfo) {
+    
+        }
+    
+        /**
+         * 授权出错
+         * @param errorCode 错误码{@link cn.joy.libs.platform.ErrorCode}
+         */
+        @Override
+        public void onError(int errorCode) {
+    
+        }
+    
+        /**
+         * 用户取消
+         */
+        @Override
+        public void onCancel() {
+    
+        }
+    };
 		
-    new AuthBuilder().authTo(Auth.Target.Wechat).listener(listener).auth();
-`
+    new AuthBuilder().authTo(Auth.Target.Wechat).listener(listener).auth();`
 
 3.分享
-`
-	private PlatformActionListener listener = new PlatformActionListener() {
+`  private PlatformActionListener listener = new PlatformActionListener() {
 	    /**
     	 * 分享成功
     	 * @param wechatAuthInfo 微信授权用户信息
@@ -97,5 +92,4 @@ compile 'cn.joy.libs:platform:1.0.6'
             .type(ShareParams.ShareType.TextAndImage)
             // 分享的目标平台
             .shareTo(Share.Target.QQ)
-            .share();
-`
+            .share();`
