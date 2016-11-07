@@ -5,7 +5,7 @@
 目前呢这个Library只支持微信、微博和QQ平台的登录鉴权以及分享功能，后续可能会加一些其他平台或其他功能.
 
 ##添加依赖
-`compile 'cn.joy.libs:platform:1.0.6'`
+`compile 'cn.joy.libs:platform:1.0.1'`
 
 ##使用方法
 1.在Application onCreate()中添加Library初始化
