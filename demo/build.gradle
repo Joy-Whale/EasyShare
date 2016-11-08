@@ -32,5 +32,7 @@ android {
 }
 
 dependencies {
-    compile project(':platform')
+//    compile project(':platform')
+
+    compile 'cn.joy.libs:platform:1.0.2'
 }

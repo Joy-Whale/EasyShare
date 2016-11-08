@@ -11,7 +11,9 @@ dependencies {
     compile files('libs/sina_sdk_3.1.2.jar')
     compile files('libs/wechat_sdk.jar')
 
-    def androidDependencies = rootProject.ext.androidSupportDependencies
-    compile androidDependencies.annotations
-    compile androidDependencies.appcompat_v4
+    provided 'com.android.support:appcompat-v7:22+'
+//
+//    def androidDependencies = rootProject.ext.androidSupportDependencies
+//    compile androidDependencies.annotations
+//    compile androidDependencies.appcompat_v4
 }

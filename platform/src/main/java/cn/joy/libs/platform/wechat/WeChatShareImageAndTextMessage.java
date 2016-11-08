@@ -1,6 +1,5 @@
 package cn.joy.libs.platform.wechat;
 
-import android.support.annotation.WorkerThread;
 
 import cn.joy.libs.platform.ShareImageUtils;
 import cn.joy.libs.platform.ShareParams;
@@ -9,7 +8,9 @@ import com.tencent.mm.sdk.modelmsg.WXMediaMessage;
 
 
 /**
- * Created by Administrator on 2016/7/21 0021.
+ * User: Administrator
+ * Date: 2016/7/21 0021
+ * Time: 9:47
  */
 
 class WeChatShareImageAndTextMessage extends WeChatShareMessage {
@@ -23,8 +24,10 @@ class WeChatShareImageAndTextMessage extends WeChatShareMessage {
 		return "img";
 	}
 
+	/**
+	 * 工作线程
+	 */
 	@Override
-	@WorkerThread
 	protected WXMediaMessage buildMediaMessage() {
 		WXImageObject object = new WXImageObject();
 		byte [] thumbByte = ShareImageUtils.getThumbData(getShareParams().getImage());

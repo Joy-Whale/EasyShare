@@ -1,12 +1,12 @@
 ext {
     androidBuildToolsVersion = "23.0.3"
-    androidMinSdkVersion = 14
+    androidMinSdkVersion = 9
     androidTargetSdkVersion = 22
     androidCompileSdkVersion = 23
 
     applicationId = "cn.joy.libs.platform.demo"
     versionCode = 1
-    versionName = '1.0.1'
+    versionName = '1.0.2'
 
     channelId = 'sougou'
 

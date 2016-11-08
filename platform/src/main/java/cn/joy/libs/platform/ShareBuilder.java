@@ -1,7 +1,6 @@
 package cn.joy.libs.platform;
 
 import android.app.Activity;
-import android.support.annotation.NonNull;
 
 /**
  * ShareBuilder为分享建造类,通过设置不同参数分享到不同平台
@@ -19,7 +18,7 @@ public class ShareBuilder {
 	 * 设置分享的宿主Activity
 	 * @param activity activity
 	 */
-	public ShareBuilder from(@NonNull Activity activity) {
+	public ShareBuilder from(Activity activity) {
 		this.activity = activity;
 		getShareParams().setShareActivity(activity);
 		return this;
@@ -116,6 +115,9 @@ public class ShareBuilder {
 	 * 分享
 	 */
 	public void share() {
+		if(activity == null){
+			throw new NullPointerException("activity must be set!!!");
+		}
 		if (target == null) {
 			onError(ErrorCode.ERROR_NULL_SHARE_TARGET);
 			return;

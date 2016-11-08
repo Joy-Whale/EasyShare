@@ -66,17 +66,13 @@ public class ShareActivity extends Activity {
 
 	@OnClick(R.id.main_share_text_image)
 	void shareTextImage() {
-		new ShareDialog(this).targetUrl(TARGET_URL)
-				.title("1111111")
-				.content("2222222")
-				.image(imagePath)
-				.type(ShareParams.ShareType.TextAndImage)
-				.show();
+		new ShareDialog(this).targetUrl(TARGET_URL).title("1111111").content("2222222").image(imagePath).type(ShareParams.ShareType.TextAndImage).show();
 	}
 
-	 class ShareDialog extends BottomSheetDialog {
+	class ShareDialog extends BottomSheetDialog {
 
 		private ShareParams params;
+		private ShareBuilder builder;
 
 		ShareDialog(@NonNull Context context) {
 			super(context);
@@ -84,9 +80,11 @@ public class ShareActivity extends Activity {
 			ButterKnife.bind(this);
 			params = new ShareParams();
 			params.setShareActivity(ShareActivity.this);
+			builder = new ShareBuilder().from(ShareActivity.this);
+			builder.params(params).listener(listener);
 		}
 
-		 ShareDialog title(String title) {
+		ShareDialog title(String title) {
 			this.params.setTitle(title);
 			return this;
 		}
@@ -113,25 +111,25 @@ public class ShareActivity extends Activity {
 
 		@OnClick(R.id.share_qqzone)
 		void shareQQZone() {
-			new ShareBuilder().params(params).listener(listener).shareTo(Share.Target.QQ).share();
+			builder.shareTo(Share.Target.QQ).share();
 			dismiss();
 		}
 
 		@OnClick(R.id.share_weibo)
 		void shareWeibo() {
-			new ShareBuilder().params(params).listener(listener).shareTo(Share.Target.SinaWeibo).share();
+			builder.byClient(false).shareTo(Share.Target.SinaWeibo).share();
 			dismiss();
 		}
 
 		@OnClick(R.id.share_wechat)
 		void shareWechat() {
-			new ShareBuilder().params(params).listener(listener).shareTo(Share.Target.Wechat).share();
+			builder.shareTo(Share.Target.Wechat).share();
 			dismiss();
 		}
 
 		@OnClick(R.id.share_moments)
 		void shareWechatMoments() {
-			new ShareBuilder().params(params).listener(listener).shareTo(Share.Target.WechatMoments).share();
+			builder.shareTo(Share.Target.WechatMoments).share();
 			dismiss();
 		}
 	}

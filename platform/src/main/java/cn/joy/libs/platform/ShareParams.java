@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.graphics.Bitmap;
 import android.os.Parcel;
 import android.os.Parcelable;
-import android.support.annotation.NonNull;
 
 import java.io.File;
 import java.util.HashMap;
@@ -150,7 +149,7 @@ public class ShareParams {
 	 * @param <T>          值泛型
 	 * @return 若存在，则返回；若默认值存在，返回默认值，否则返回null
 	 */
-	private <T> T get(String key, Class<T> clazz, @NonNull T defaultValue) {
+	private <T> T get(String key, Class<T> clazz, T defaultValue) {
 		Object obj = params.get(key);
 		return obj == null ? defaultValue : clazz.cast(obj);
 	}

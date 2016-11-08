@@ -1,15 +1,16 @@
 package cn.joy.libs.platform.wechat;
 
-import android.support.annotation.WorkerThread;
-
-import cn.joy.libs.platform.ShareMessage;
-import cn.joy.libs.platform.ShareParams;
 import com.tencent.mm.sdk.modelmsg.SendMessageToWX;
 import com.tencent.mm.sdk.modelmsg.WXMediaMessage;
 
+import cn.joy.libs.platform.ShareMessage;
+import cn.joy.libs.platform.ShareParams;
+
 
 /**
- * Created by Administrator on 2016/7/21 0021.
+ * User: Administrator
+ * Date: 2016/7/21 0021
+ * Time: 9:48
  */
 
 abstract class WeChatShareMessage extends ShareMessage<SendMessageToWX.Req> {
@@ -26,7 +27,6 @@ abstract class WeChatShareMessage extends ShareMessage<SendMessageToWX.Req> {
 	protected abstract WXMediaMessage buildMediaMessage();
 
 	@Override
-	@WorkerThread
 	protected SendMessageToWX.Req createMessage() {
 		SendMessageToWX.Req req = new SendMessageToWX.Req();
 		req.transaction = buildTransaction();
