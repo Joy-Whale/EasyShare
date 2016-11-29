@@ -5,7 +5,7 @@
 目前呢这个Library只支持微信、微博和QQ平台的登录鉴权以及分享功能，后续可能会加一些其他平台或其他功能.
 
 ##添加依赖
-`compile 'cn.joy.libs:platform:1.0.1'`
+`compile 'cn.joy.libs:platform:1.0.3'`
 
 ##使用方法
 1.在主package下添加微信必要的回调Activity,**需继承自cn.joy.libs.platform.wechat.WXEntryActivity**
@@ -133,6 +133,9 @@
 
 
 ##更新日志
+
+###1.0.3  2016-11-29
+1.修复`java.lang.RuntimeException: Unable to start activity ComponentInfo{com.sina.weibo.sdk.demo/com.sina.weibo.sdk.component.WeiboSdkBrowser}: java.lang.IllegalArgumentException: Empty file name` bug
 
 ###1.0.2  2016-11-8
 1.删除无用的依赖
