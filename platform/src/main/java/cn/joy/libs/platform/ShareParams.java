@@ -106,6 +106,7 @@ public class ShareParams {
 		public void writeToParcel(Parcel dest, int flags) {
 			dest.writeInt(this.source == null ? -1 : this.source.ordinal());
 			dest.writeString(this.url);
+			dest.writeSerializable(this.file);
 			dest.writeParcelable(this.bitmap, flags);
 		}
 
@@ -113,6 +114,7 @@ public class ShareParams {
 			int tmpSource = in.readInt();
 			this.source = tmpSource == -1 ? null : Source.values()[tmpSource];
 			this.url = in.readString();
+			this.file = (File) in.readSerializable();
 			this.bitmap = in.readParcelable(Bitmap.class.getClassLoader());
 		}
 
