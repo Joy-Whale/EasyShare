@@ -132,7 +132,7 @@ public class SinaWeiboEntryActivity extends Activity implements IWeiboHandler.Re
 					Oauth2AccessToken oauth2AccessToken = getLocalAccessToken();
 					JSONObject object = Utils.requestGetJson(String.format("https://api.weibo.com/oauth2/revokeoauth2?access_token=%s", oauth2AccessToken.getToken()));
 					if (object == null) {
-						AuthCallbackReceiver.sendBroadcastError(SinaWeiboEntryActivity.this, ErrorCode.ERROR_AUTH);
+						AuthCallbackReceiver.sendBroadcastError(SinaWeiboEntryActivity.this, ErrorCode.ERROR_DEAUTH);
 						return;
 					}
 					try {
@@ -142,7 +142,7 @@ public class SinaWeiboEntryActivity extends Activity implements IWeiboHandler.Re
 						}
 					} catch (JSONException e) {
 						e.printStackTrace();
-						AuthCallbackReceiver.sendBroadcastError(SinaWeiboEntryActivity.this, ErrorCode.ERROR_AUTH);
+						AuthCallbackReceiver.sendBroadcastError(SinaWeiboEntryActivity.this, ErrorCode.ERROR_DEAUTH);
 					}
 				}
 			}.start();

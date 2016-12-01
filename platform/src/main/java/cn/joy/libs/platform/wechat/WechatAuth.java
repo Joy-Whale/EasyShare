@@ -2,6 +2,7 @@ package cn.joy.libs.platform.wechat;
 
 import cn.joy.libs.platform.AuthWithReceiver;
 import cn.joy.libs.platform.ErrorCode;
+
 import com.tencent.mm.sdk.modelmsg.SendAuth;
 
 /**
@@ -39,7 +40,7 @@ public class WechatAuth extends AuthWithReceiver<Wechat, WechatAuthInfo> {
 	public boolean deAuth() {
 		if (!super.deAuth())
 			return false;
-		onError(ErrorCode.ERROR_AUTH);
+		onError(ErrorCode.ERROR_DEAUTH);
 		return true;
 	}
 }

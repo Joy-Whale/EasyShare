@@ -23,6 +23,14 @@ public abstract class AuthWithReceiver<T extends Platform, Q extends PlatformAut
 	}
 
 	@Override
+	public boolean deAuth() {
+		if (!super.deAuth())
+			return false;
+		receiver.register(getPlatform().getContext(), this);
+		return true;
+	}
+
+	@Override
 	protected void onFinish() {
 		receiver.unregister();
 	}

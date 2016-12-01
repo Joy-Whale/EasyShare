@@ -28,4 +28,6 @@ public interface ErrorCode {
 	int ERROR_SHARE_BAN = 6006;
 	//  授权失败
 	int ERROR_AUTH = 7001;
+	//  取消授权失败
+	int ERROR_DEAUTH = 7002;
 }
