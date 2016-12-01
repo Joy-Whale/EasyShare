@@ -14,6 +14,7 @@ import cn.joy.libs.platform.PlatformFactory;
 import cn.joy.libs.platform.Share;
 import cn.joy.libs.platform.ShareCallbackReceiver;
 import cn.joy.libs.platform.Utils;
+
 import com.tencent.mm.sdk.modelbase.BaseReq;
 import com.tencent.mm.sdk.modelbase.BaseResp;
 import com.tencent.mm.sdk.modelmsg.SendAuth;
@@ -36,11 +37,11 @@ public class WechatEntryActivity extends Activity implements IWXAPIEventHandler 
 	private static final String SCOPE_BASE = "snsapi_base";
 	private static final String SCOPE_USER = "snsapi_userinfo";
 	private static final String EXTRA_OPERATE = "EXTRA_OPERATE";
-//
-//	static void auth(Context context, boolean requestUserInfo) {
-//		context.startActivity(new Intent(context, WechatEntryActivity.class).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-//				.putExtra(EXTRA_OPERATE, requestUserInfo ? Operate.AuthAndInfo : Operate.Auth));
-//	}
+	//
+	//	static void auth(Context context, boolean requestUserInfo) {
+	//		context.startActivity(new Intent(context, WechatEntryActivity.class).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+	//				.putExtra(EXTRA_OPERATE, requestUserInfo ? Operate.AuthAndInfo : Operate.Auth));
+	//	}
 
 	private Operate operate = Operate.Share;
 
@@ -68,6 +69,7 @@ public class WechatEntryActivity extends Activity implements IWXAPIEventHandler 
 
 	@Override
 	public void onResp(BaseResp baseResp) {
+		// 请求auth点击返回键时返回的baseResp类型居然是SendMessageToWX.Resp而不是SendAuth.Resp???只能同时调用俩广播了
 		if (baseResp instanceof SendMessageToWX.Resp) {
 			SendMessageToWX.Resp resp = (SendMessageToWX.Resp) baseResp;
 			switch (resp.errCode) {
@@ -76,12 +78,14 @@ public class WechatEntryActivity extends Activity implements IWXAPIEventHandler 
 					break;
 				case BaseResp.ErrCode.ERR_USER_CANCEL:
 					ShareCallbackReceiver.sendBroadcastCancel(this);
+					AuthCallbackReceiver.sendBroadcastCancel(this);
 					break;
 				case BaseResp.ErrCode.ERR_SENT_FAILED:
 				case BaseResp.ErrCode.ERR_UNSUPPORT:
 				case BaseResp.ErrCode.ERR_AUTH_DENIED:
 				case BaseResp.ErrCode.ERR_BAN:
 					ShareCallbackReceiver.sendBroadcastError(this, ErrorCode.ERROR_SHARE);
+					AuthCallbackReceiver.sendBroadcastError(this, ErrorCode.ERROR_AUTH);
 					break;
 			}
 		} else if (baseResp instanceof SendAuth.Resp) {
@@ -129,8 +133,7 @@ public class WechatEntryActivity extends Activity implements IWXAPIEventHandler 
 			info.setRefreshToken(object.getString("refresh_token"));
 			info.setOpenId(object.getString("openid"));
 			info.setScope(object.getString("scope"));
-			if (info.getScope()
-					.contains(SCOPE_USER) && !TextUtils.isEmpty(info.getAccessToken()) && !TextUtils.isEmpty(info.getOpenId())) {
+			if (info.getScope().contains(SCOPE_USER) && !TextUtils.isEmpty(info.getAccessToken()) && !TextUtils.isEmpty(info.getOpenId())) {
 				getUserInfo(info);
 			} else {
 				AuthCallbackReceiver.sendBroadcastComplete(this, info);

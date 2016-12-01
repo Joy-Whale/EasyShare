@@ -32,8 +32,9 @@ class SinaWeiboImageAndTextMessage extends SinaWeiboTextMessage {
 				object.setImageObject(image.getImageBitmap());
 				break;
 			case File:
+				object.imagePath = image.getImageFile().getAbsolutePath();
 			case Http:
-				object.imageData = ShareImageUtils.getThumbData(image, MAX_IMAGE_SIZE);
+				object.imageData = ShareImageUtils.getCompressData(image);
 				break;
 		}
 		message.imageObject = object;

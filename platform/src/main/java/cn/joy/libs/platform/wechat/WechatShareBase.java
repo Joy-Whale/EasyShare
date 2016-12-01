@@ -2,6 +2,7 @@ package cn.joy.libs.platform.wechat;
 
 import android.os.AsyncTask;
 
+import cn.joy.libs.platform.ErrorCode;
 import cn.joy.libs.platform.ShareParams;
 import cn.joy.libs.platform.ShareWithReceiver;
 import com.tencent.mm.sdk.modelmsg.SendMessageToWX;
@@ -55,8 +56,14 @@ abstract class WechatShareBase extends ShareWithReceiver<Wechat> {
 			@Override
 			protected void onPostExecute(SendMessageToWX.Req req) {
 				super.onPostExecute(req);
-				if (req != null)
-					getPlatform().getApi().sendReq(req);
+				if(req == null){
+					onError(ErrorCode.ERROR_SHARE);
+					return;
+				}
+				if(!getPlatform().getApi().sendReq(req)){
+					onError(ErrorCode.ERROR_SHARE);
+				}
+
 			}
 		}.execute();
 		return true;
