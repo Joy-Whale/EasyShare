@@ -5,7 +5,7 @@
 目前呢这个Library只支持微信、微博和QQ平台的登录鉴权以及分享功能，后续可能会加一些其他平台或其他功能.
 
 ##添加依赖
-`compile 'cn.joy.libs:platform:1.0.5'`
+`compile 'cn.joy.libs:platform:1.0.6'`
 
 ##使用方法
 1.在主package下添加微信必要的回调Activity,**需继承自cn.joy.libs.platform.wechat.WXEntryActivity**

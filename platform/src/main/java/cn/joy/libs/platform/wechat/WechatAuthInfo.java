@@ -12,7 +12,7 @@ import cn.joy.libs.platform.PlatformAuthInfo;
  * Time: 10-45
  */
 
-public class WechatAuthInfo extends PlatformAuthInfo {
+public class WeChatAuthInfo extends PlatformAuthInfo {
 
 	private long expires;
 	private String refreshToken;
@@ -56,12 +56,12 @@ public class WechatAuthInfo extends PlatformAuthInfo {
 		return Platform.Target.Wechat;
 	}
 
-	public WechatAuthInfo() {
+	public WeChatAuthInfo() {
 	}
 
 	@Override
 	public String toString() {
-		return "WechatAuthInfo{" +
+		return "WeChatAuthInfo{" +
 				", expires=" + expires +
 				", refreshToken='" + refreshToken + '\'' +
 				", scope='" + scope + '\'' +
@@ -83,7 +83,7 @@ public class WechatAuthInfo extends PlatformAuthInfo {
 		dest.writeString(this.unionId);
 	}
 
-	protected WechatAuthInfo(Parcel in) {
+	protected WeChatAuthInfo(Parcel in) {
 		super(in);
 		this.expires = in.readLong();
 		this.refreshToken = in.readString();
@@ -91,15 +91,15 @@ public class WechatAuthInfo extends PlatformAuthInfo {
 		this.unionId = in.readString();
 	}
 
-	public static final Parcelable.Creator<WechatAuthInfo> CREATOR = new Parcelable.Creator<WechatAuthInfo>() {
+	public static final Parcelable.Creator<WeChatAuthInfo> CREATOR = new Parcelable.Creator<WeChatAuthInfo>() {
 		@Override
-		public WechatAuthInfo createFromParcel(Parcel source) {
-			return new WechatAuthInfo(source);
+		public WeChatAuthInfo createFromParcel(Parcel source) {
+			return new WeChatAuthInfo(source);
 		}
 
 		@Override
-		public WechatAuthInfo[] newArray(int size) {
-			return new WechatAuthInfo[size];
+		public WeChatAuthInfo[] newArray(int size) {
+			return new WeChatAuthInfo[size];
 		}
 	};
 }

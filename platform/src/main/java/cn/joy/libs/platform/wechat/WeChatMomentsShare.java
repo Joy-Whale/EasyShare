@@ -10,13 +10,13 @@ import com.tencent.mm.sdk.modelmsg.SendMessageToWX;
  *
  */
 
-public class WeChatMomentsShare extends WechatShareBase {
+public class WeChatMomentsShare extends WeChatShareBase {
 
-	public WeChatMomentsShare(Wechat platform, ShareParams params) {
+	public WeChatMomentsShare(WeChat platform, ShareParams params) {
 		super(platform, params);
 	}
 
-	public WeChatMomentsShare(Wechat platform, ShareParams params, boolean shareByClient) {
+	public WeChatMomentsShare(WeChat platform, ShareParams params, boolean shareByClient) {
 		super(platform, params, shareByClient);
 	}
 

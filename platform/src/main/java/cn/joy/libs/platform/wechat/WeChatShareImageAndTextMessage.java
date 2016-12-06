@@ -43,6 +43,7 @@ class WeChatShareImageAndTextMessage extends WeChatShareMessage {
 				break;
 		}
 		WXMediaMessage message = new WXMediaMessage();
+		message.title = getShareParams().getTitle();
 		message.mediaObject = object;
 		message.thumbData = ShareImageUtils.getThumbCompressData(object.imageData);
 		message.description = getShareParams().getContent();

@@ -10,7 +10,6 @@ import cn.joy.libs.platform.ShareWithReceiver;
  * User: JiYu
  * Date: 2016-07-27
  * Time: 12-09
- *
  */
 
 abstract class QQShareBase extends ShareWithReceiver<QQ> {
@@ -57,10 +56,11 @@ abstract class QQShareBase extends ShareWithReceiver<QQ> {
 		Bundle bundle = null;
 		switch (getShareParams().getShareType()) {
 			case Image:
-				bundle = new QQShareImage(getShareParams()).createMessage();
+				bundle = new QQShareImageMessage(getShareParams()).createMessage();
 				break;
 			case TextAndImage:
-				bundle = new QQShareTextAndImage(getShareParams()).createMessage();
+			case WebPage:
+				bundle = new QQShareTextAndImageMessage(getShareParams()).createMessage();
 				break;
 		}
 		if (bundle != null) {

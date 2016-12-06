@@ -11,9 +11,9 @@ import com.tencent.mm.sdk.modelmsg.SendAuth;
  * Time: 18-00
  */
 
-public class WechatAuth extends AuthWithReceiver<Wechat, WechatAuthInfo> {
+public class WeChatAuth extends AuthWithReceiver<WeChat, WeChatAuthInfo> {
 
-	public WechatAuth(Wechat platform, boolean loginByClient) {
+	public WeChatAuth(WeChat platform, boolean loginByClient) {
 		super(platform, loginByClient);
 	}
 

@@ -11,9 +11,9 @@ import com.sina.weibo.sdk.api.WeiboMultiMessage;
  *
  */
 
-class SinaWeiboTextMessage extends SinaWeiboMessage {
+class SinaWeiboShareTextMessage extends SinaWeiboShareMessage {
 
-	SinaWeiboTextMessage(ShareParams params) {
+	SinaWeiboShareTextMessage(ShareParams params) {
 		super(params);
 	}
 

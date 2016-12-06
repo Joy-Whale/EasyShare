@@ -39,10 +39,13 @@ public class SinaWeiboShare extends ShareWithReceiver<Sina> {
 				WeiboMultiMessage message = null;
 				switch (getShareParams().getShareType()) {
 					case Text:
-						message = new SinaWeiboTextMessage(getShareParams()).createMessage();
+						message = new SinaWeiboShareTextMessage(getShareParams()).createMessage();
 						break;
 					case TextAndImage:
-						message = new SinaWeiboImageAndTextMessage(getShareParams()).createMessage();
+						message = new SinaWeiboShareImageAndTextMessage(getShareParams()).createMessage();
+						break;
+					case WebPage:
+						message = new SinaWeiboShareWebPageMessage(getShareParams()).createMessage();
 						break;
 				}
 				SinaWeiboEntryActivity.share(getShareParams().getShareActivity(), message);

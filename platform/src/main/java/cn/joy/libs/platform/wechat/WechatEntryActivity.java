@@ -11,7 +11,6 @@ import cn.joy.libs.platform.Logs;
 import cn.joy.libs.platform.Operate;
 import cn.joy.libs.platform.PlatformAuthInfo;
 import cn.joy.libs.platform.PlatformFactory;
-import cn.joy.libs.platform.Share;
 import cn.joy.libs.platform.ShareCallbackReceiver;
 import cn.joy.libs.platform.Utils;
 
@@ -30,7 +29,7 @@ import org.json.JSONObject;
  * Time: 18-05
  */
 
-public class WechatEntryActivity extends Activity implements IWXAPIEventHandler {
+public class WeChatEntryActivity extends Activity implements IWXAPIEventHandler {
 
 	private static final String TAG = "WeChatEntryActivity";
 
@@ -39,7 +38,7 @@ public class WechatEntryActivity extends Activity implements IWXAPIEventHandler 
 	private static final String EXTRA_OPERATE = "EXTRA_OPERATE";
 	//
 	//	static void auth(Context context, boolean requestUserInfo) {
-	//		context.startActivity(new Intent(context, WechatEntryActivity.class).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+	//		context.startActivity(new Intent(context, WeChatEntryActivity.class).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
 	//				.putExtra(EXTRA_OPERATE, requestUserInfo ? Operate.AuthAndInfo : Operate.Auth));
 	//	}
 
@@ -127,7 +126,7 @@ public class WechatEntryActivity extends Activity implements IWXAPIEventHandler 
 			return;
 		}
 		try {
-			WechatAuthInfo info = new WechatAuthInfo();
+			WeChatAuthInfo info = new WeChatAuthInfo();
 			info.setAccessToken(object.getString("access_token"));
 			info.setExpires(object.getLong("expires_in"));
 			info.setRefreshToken(object.getString("refresh_token"));
@@ -148,7 +147,7 @@ public class WechatEntryActivity extends Activity implements IWXAPIEventHandler 
 	 * 获取用户详细资料
 	 * @param info 用户info
 	 */
-	private void getUserInfo(WechatAuthInfo info) {
+	private void getUserInfo(WeChatAuthInfo info) {
 		JSONObject object = Utils.requestGetJson(String.format("https://api.weixin.qq.com/sns/userinfo?access_token=%s&openid=%s", info.getAccessToken(), info.getOpenId()));
 		if (object == null || object.has("errcode")) {
 			AuthCallbackReceiver.sendBroadcastError(this, ErrorCode.ERROR_SHARE);

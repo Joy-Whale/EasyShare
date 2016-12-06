@@ -4,7 +4,7 @@ import android.content.Context;
 
 import cn.joy.libs.platform.qq.QQ;
 import cn.joy.libs.platform.sina.Sina;
-import cn.joy.libs.platform.wechat.Wechat;
+import cn.joy.libs.platform.wechat.WeChat;
 
 
 /**
@@ -15,8 +15,8 @@ import cn.joy.libs.platform.wechat.Wechat;
 
 public class PlatformFactory {
 
-	public static Wechat createWechat(String key, String secret) {
-		return new Wechat(getContext(), key, secret);
+	public static WeChat createWechat(String key, String secret) {
+		return new WeChat(getContext(), key, secret);
 	}
 
 	public static QQ createQQ(String key, String secret) {
@@ -31,8 +31,8 @@ public class PlatformFactory {
 		return new Sina(getContext(), key, secret, redirectUrl, scope);
 	}
 
-	public static Wechat getWechat() {
-		return (Wechat) PlatformManager.getInstance().getPlatform(Wechat.NAME);
+	public static WeChat getWechat() {
+		return (WeChat) PlatformManager.getInstance().getPlatform(WeChat.NAME);
 	}
 
 	public static QQ getQQ() {

@@ -5,22 +5,22 @@ import android.os.AsyncTask;
 import cn.joy.libs.platform.ErrorCode;
 import cn.joy.libs.platform.ShareParams;
 import cn.joy.libs.platform.ShareWithReceiver;
+
 import com.tencent.mm.sdk.modelmsg.SendMessageToWX;
 
 /**
  * User: JiYu
  * Date: 2016-07-28
  * Time: 18-22
- *
  */
 
-abstract class WechatShareBase extends ShareWithReceiver<Wechat> {
+abstract class WeChatShareBase extends ShareWithReceiver<WeChat> {
 
-	WechatShareBase(Wechat platform, ShareParams params) {
+	WeChatShareBase(WeChat platform, ShareParams params) {
 		super(platform, params);
 	}
 
-	WechatShareBase(Wechat platform, ShareParams params, boolean shareByClient) {
+	WeChatShareBase(WeChat platform, ShareParams params, boolean shareByClient) {
 		super(platform, params, shareByClient);
 	}
 
@@ -49,6 +49,9 @@ abstract class WechatShareBase extends ShareWithReceiver<Wechat> {
 					case TextAndImage:
 						req = new WeChatShareImageAndTextMessage(getShareParams(), getScene()).createMessage();
 						break;
+					case WebPage:
+						req = new WeChatShareWebPageMessage(getShareParams(), getScene()).createMessage();
+						break;
 				}
 				return req;
 			}
@@ -56,11 +59,11 @@ abstract class WechatShareBase extends ShareWithReceiver<Wechat> {
 			@Override
 			protected void onPostExecute(SendMessageToWX.Req req) {
 				super.onPostExecute(req);
-				if(req == null){
+				if (req == null) {
 					onError(ErrorCode.ERROR_SHARE);
 					return;
 				}
-				if(!getPlatform().getApi().sendReq(req)){
+				if (!getPlatform().getApi().sendReq(req)) {
 					onError(ErrorCode.ERROR_SHARE);
 				}
 

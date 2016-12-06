@@ -3,7 +3,7 @@ package cn.joy.libs.platform;
 
 import cn.joy.libs.platform.qq.QQAuth;
 import cn.joy.libs.platform.sina.SinaAuth;
-import cn.joy.libs.platform.wechat.WechatAuth;
+import cn.joy.libs.platform.wechat.WeChatAuth;
 
 /**
  * User: JiYu
@@ -23,7 +23,7 @@ public class AuthFactory {
 				login = new SinaAuth(PlatformFactory.getSina(), loginByClient);
 				break;
 			case Wechat:
-				login = new WechatAuth(PlatformFactory.getWechat(), loginByClient);
+				login = new WeChatAuth(PlatformFactory.getWechat(), loginByClient);
 				break;
 		}
 		return login;

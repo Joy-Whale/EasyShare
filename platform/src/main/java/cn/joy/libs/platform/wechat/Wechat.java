@@ -12,13 +12,13 @@ import com.tencent.mm.sdk.openapi.WXAPIFactory;
  * Time: 15-05
  */
 
-public class Wechat extends Platform<IWXAPI> {
+public class WeChat extends Platform<IWXAPI> {
 
-	public static final String NAME = "Wechat";
+	public static final String NAME = "WeChat";
 
 	private IWXAPI iwxapi;
 
-	public Wechat(Context context, String key, String secret) {
+	public WeChat(Context context, String key, String secret) {
 		super(context, key, secret);
 	}
 

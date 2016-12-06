@@ -12,11 +12,11 @@ import com.sina.weibo.sdk.api.WeiboMultiMessage;
  * Time: 12-07
  */
 
-class SinaWeiboImageAndTextMessage extends SinaWeiboTextMessage {
+class SinaWeiboShareImageAndTextMessage extends SinaWeiboShareTextMessage {
 
 	private static final int MAX_IMAGE_SIZE = 32 * 1024;
 
-	SinaWeiboImageAndTextMessage(ShareParams params) {
+	SinaWeiboShareImageAndTextMessage(ShareParams params) {
 		super(params);
 	}
 
@@ -36,10 +36,6 @@ class SinaWeiboImageAndTextMessage extends SinaWeiboTextMessage {
 				break;
 		}
 		message.imageObject = object;
-		TextObject textObject = new TextObject();
-		textObject.text = getShareParams().getContent();
-		message.textObject = textObject;
-		//		message.mediaObject = object;
 		return message;
 	}
 }

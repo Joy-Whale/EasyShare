@@ -11,10 +11,10 @@ import com.sina.weibo.sdk.api.WeiboMultiMessage;
  *
  */
 
-abstract class SinaWeiboMessage extends ShareMessage<WeiboMultiMessage> {
+abstract class SinaWeiboShareMessage extends ShareMessage<WeiboMultiMessage> {
 
 
-	SinaWeiboMessage(ShareParams params) {
+	SinaWeiboShareMessage(ShareParams params) {
 		super(params);
 	}
 }

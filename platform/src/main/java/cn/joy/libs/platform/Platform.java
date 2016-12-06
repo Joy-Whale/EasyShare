@@ -2,6 +2,8 @@ package cn.joy.libs.platform;
 
 import android.content.Context;
 
+import cn.joy.libs.platform.wechat.WeChat;
+
 /**
  * User: JiYu
  * Date: 2016-07-27
@@ -15,7 +17,7 @@ public abstract class Platform<T> {
 
 	public enum Target {
 		QQ(cn.joy.libs.platform.qq.QQ.NAME),
-		Wechat(cn.joy.libs.platform.wechat.Wechat.NAME),
+		Wechat(WeChat.NAME),
 		Sina(cn.joy.libs.platform.sina.Sina.NAME);
 
 		private String name;
