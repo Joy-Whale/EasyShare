@@ -19,6 +19,8 @@ class WeChatShareImageAndTextMessage extends WeChatShareMessage {
 	private static final int MAX_IMAGE_SIZE = 512 * 1024;
 	private static final int MAX_THUMB_SIZE = 32 * 1024;
 
+	private byte[] thumbData;
+
 	WeChatShareImageAndTextMessage(ShareParams params, int scene) {
 		super(params, scene);
 	}
@@ -28,11 +30,8 @@ class WeChatShareImageAndTextMessage extends WeChatShareMessage {
 		return "img";
 	}
 
-	/**
-	 * 工作线程
-	 */
 	@Override
-	protected WXMediaMessage buildMediaMessage() {
+	protected WXMediaMessage.IMediaObject createMediaObject() {
 		WXImageObject object = new WXImageObject();
 		switch (getShareParams().getImage().getSource()) {
 			case File:
@@ -40,13 +39,16 @@ class WeChatShareImageAndTextMessage extends WeChatShareMessage {
 				break;
 			case Http:
 				object.imageData = ShareImageUtils.getCompressData(getShareParams().getImage(), MAX_IMAGE_SIZE);
+				thumbData = object.imageData;
 				break;
 		}
-		WXMediaMessage message = new WXMediaMessage();
-		message.title = getShareParams().getTitle();
-		message.mediaObject = object;
-		message.thumbData = ShareImageUtils.getThumbCompressData(object.imageData);
-		message.description = getShareParams().getContent();
-		return message;
+		return object;
+	}
+
+	@Override
+	protected byte[] createThumbData() {
+		if (thumbData == null)
+			return super.createThumbData();
+		return ShareImageUtils.getThumbCompressData(thumbData);
 	}
 }

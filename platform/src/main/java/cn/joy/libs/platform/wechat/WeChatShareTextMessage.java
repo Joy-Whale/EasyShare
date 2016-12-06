@@ -21,12 +21,9 @@ import com.tencent.mm.sdk.modelmsg.WXTextObject;
 	}
 
 	@Override
-	protected WXMediaMessage buildMediaMessage() {
+	protected WXMediaMessage.IMediaObject createMediaObject() {
 		WXTextObject object = new WXTextObject();
 		object.text = getShareParams().getContent();
-		WXMediaMessage msg = new WXMediaMessage();
-		msg.mediaObject = object;
-		msg.description = getShareParams().getContent();
-		return msg;
+		return object;
 	}
 }
