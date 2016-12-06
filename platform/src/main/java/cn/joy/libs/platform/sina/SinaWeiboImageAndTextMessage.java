@@ -24,8 +24,6 @@ class SinaWeiboImageAndTextMessage extends SinaWeiboTextMessage {
 	protected WeiboMultiMessage createMessage() {
 		WeiboMultiMessage message = super.createMessage();
 		final ImageObject object = new ImageObject();
-		object.imagePath = getShareParams().getImage().getImageUrl();
-		object.setImageObject(getShareParams().getImage().getImageBitmap());
 		final ShareParams.ShareImage image = getShareParams().getImage();
 		switch (image.getSource()) {
 			case Bitmap:
