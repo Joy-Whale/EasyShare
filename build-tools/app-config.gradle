@@ -6,7 +6,7 @@ ext {
 
     applicationId = "cn.joy.libs.platform.demo"
     versionCode = 1
-    versionName = '1.0.5'
+    versionName = '1.0.7'
 
     channelId = 'sougou'
 

@@ -2,6 +2,7 @@ package cn.joy.libs.platform.sina;
 
 import cn.joy.libs.platform.ShareImageUtils;
 import cn.joy.libs.platform.ShareParams;
+
 import com.sina.weibo.sdk.api.ImageObject;
 import com.sina.weibo.sdk.api.TextObject;
 import com.sina.weibo.sdk.api.WeiboMultiMessage;
@@ -31,6 +32,7 @@ class SinaWeiboShareImageAndTextMessage extends SinaWeiboShareTextMessage {
 				break;
 			case File:
 				object.imagePath = image.getImageFile().getAbsolutePath();
+				break;
 			case Http:
 				object.imageData = ShareImageUtils.getCompressData(image);
 				break;

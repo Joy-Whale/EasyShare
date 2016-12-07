@@ -177,6 +177,9 @@ public class ShareImageUtils {
 			case Http:
 				bmp = decodeUrl(image.getImageUrl());
 				break;
+			case Bitmap:
+				bmp = image.getImageBitmap();
+				break;
 		}
 		return bmp;
 	}

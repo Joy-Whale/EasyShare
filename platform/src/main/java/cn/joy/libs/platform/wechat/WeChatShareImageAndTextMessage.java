@@ -37,6 +37,7 @@ class WeChatShareImageAndTextMessage extends WeChatShareMessage {
 			case File:
 				object.imagePath = getShareParams().getImage().getImageFile().getPath();
 				break;
+			case Bitmap:
 			case Http:
 				object.imageData = ShareImageUtils.getCompressData(getShareParams().getImage(), MAX_IMAGE_SIZE);
 				thumbData = object.imageData;

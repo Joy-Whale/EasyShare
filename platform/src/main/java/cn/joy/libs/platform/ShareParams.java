@@ -72,11 +72,12 @@ public class ShareParams {
 		}
 
 		public ShareImage(Bitmap bitmap) {
-			this.bitmap = bitmap;
 			this.source = Source.Bitmap;
+			this.bitmap = bitmap;
 		}
 
 		public ShareImage(File file) {
+			this.source = Source.File;
 			this.file = file;
 		}
 
