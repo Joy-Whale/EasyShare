@@ -54,6 +54,11 @@ public class ShareImageUtils {
 		return getThumbCompressData(source, COMPRESS_THUMB_IMAGE_SIZE_DEFAULT);
 	}
 
+	public static Bitmap getThumbCompressBitmap(byte[] source){
+		byte[] bytes = getThumbCompressData(source);
+		return BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
+	}
+
 	/**
 	 * 根据原图数据获取缩略图资源
 	 * @param source 原图数据
@@ -164,6 +169,32 @@ public class ShareImageUtils {
 	}
 
 	/**
+	 * 获取bitmap压缩数据
+	 * @param bmp       bmp
+	 * @param maxSize   maxSize
+	 * @param widthMax  widthMax
+	 * @param heightMax heightMax
+	 * @param cropScale cropScale
+	 * @param isFixSize isFixSize
+	 */
+	public static Bitmap getCompressBitmap(Bitmap bmp, int maxSize, int widthMax, int heightMax, float cropScale, boolean isFixSize) {
+		byte[] bytes = getBitmapCompressData(bmp, maxSize, widthMax, heightMax, cropScale, isFixSize);
+		return BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
+	}
+
+	/**
+	 * 获取bitmap压缩缩略Bitmap
+	 * @param bmp 原bitmap
+	 */
+	public static Bitmap getThumbCompressBitmap(Bitmap bmp) {
+		return getCompressBitmap(bmp, THUMB_MAX_SIZE, COMPRESS_IMAGE_SIDE_DEFAULT, COMPRESS_IMAGE_SIDE_DEFAULT, 0, false);
+	}
+
+	public static Bitmap getThumbCompressBitmap(String filePath) {
+		return getThumbCompressBitmap(BitmapFactory.decodeFile(filePath));
+	}
+
+	/**
 	 * 根据图片url等转化为bitmap
 	 * @param image 图片bean
 	 */
@@ -176,9 +207,6 @@ public class ShareImageUtils {
 				break;
 			case Http:
 				bmp = decodeUrl(image.getImageUrl());
-				break;
-			case Bitmap:
-				bmp = image.getImageBitmap();
 				break;
 		}
 		return bmp;

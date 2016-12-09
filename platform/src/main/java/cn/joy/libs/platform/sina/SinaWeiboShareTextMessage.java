@@ -22,6 +22,7 @@ class SinaWeiboShareTextMessage extends SinaWeiboShareMessage {
 		WeiboMultiMessage message = new WeiboMultiMessage();
 		TextObject object = new TextObject();
 		object.text = getShareParams().getContent();
+		object.title = getShareParams().getTitle();
 		message.textObject = object;
 		return message;
 	}

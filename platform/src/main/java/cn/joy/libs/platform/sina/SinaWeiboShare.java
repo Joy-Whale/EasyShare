@@ -2,6 +2,7 @@ package cn.joy.libs.platform.sina;
 
 import cn.joy.libs.platform.ShareParams;
 import cn.joy.libs.platform.ShareWithReceiver;
+
 import com.sina.weibo.sdk.api.WeiboMultiMessage;
 import com.sina.weibo.sdk.api.share.IWeiboShareAPI;
 import com.sina.weibo.sdk.api.share.WeiboShareSDK;
@@ -39,6 +40,7 @@ public class SinaWeiboShare extends ShareWithReceiver<Sina> {
 				WeiboMultiMessage message = null;
 				switch (getShareParams().getShareType()) {
 					case Text:
+					case Image:
 						message = new SinaWeiboShareTextMessage(getShareParams()).createMessage();
 						break;
 					case TextAndImage:

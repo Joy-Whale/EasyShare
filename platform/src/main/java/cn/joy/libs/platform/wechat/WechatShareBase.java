@@ -46,6 +46,7 @@ abstract class WeChatShareBase extends ShareWithReceiver<WeChat> {
 					case Text:
 						req = new WeChatShareTextMessage(getShareParams(), getScene()).createMessage();
 						break;
+					case Image:
 					case TextAndImage:
 						req = new WeChatShareImageAndTextMessage(getShareParams(), getScene()).createMessage();
 						break;
