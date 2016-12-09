@@ -26,7 +26,7 @@ class QQShareImageMessage extends QQShareMessage {
 		bundle.putString(QQShare.SHARE_TO_QQ_TITLE, getShareParams().getTitle());
 		switch (getShareParams().getImage().getSource()) {
 			case File:
-				bundle.putString(QQShare.SHARE_TO_QQ_IMAGE_LOCAL_URL, getShareParams().getImage().getImageUrl());
+				bundle.putString(QQShare.SHARE_TO_QQ_IMAGE_LOCAL_URL, getShareParams().getImage().getImageFile().getAbsolutePath());
 				break;
 			case Http:
 				bundle.putString(QQShare.SHARE_TO_QQ_IMAGE_URL, getShareParams().getImage().getImageUrl());
