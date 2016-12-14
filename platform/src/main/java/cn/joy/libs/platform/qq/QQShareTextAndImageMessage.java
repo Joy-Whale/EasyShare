@@ -1,7 +1,9 @@
 package cn.joy.libs.platform.qq;
 
 import android.os.Bundle;
+import android.os.Environment;
 
+import cn.joy.libs.platform.ShareImageUtils;
 import cn.joy.libs.platform.ShareParams;
 import com.tencent.connect.share.QQShare;
 
@@ -24,6 +26,11 @@ class QQShareTextAndImageMessage extends QQShareMessage {
 				break;
 			case Http:
 				bundle.putString(QQShare.SHARE_TO_QQ_IMAGE_URL, getShareParams().getImage().getImageUrl());
+				break;
+			case Bitmap:
+				String savePath = ShareImageUtils.saveBitmapToExternal(getShareParams().getImage()
+						.getImageBitmap(), Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES).getAbsolutePath()).getAbsolutePath();
+				bundle.putString(QQShare.SHARE_TO_QQ_IMAGE_LOCAL_URL, savePath);
 				break;
 		}
 		bundle.putString(QQShare.SHARE_TO_QQ_SUMMARY, getShareParams().getContent());
