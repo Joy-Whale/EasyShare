@@ -265,7 +265,12 @@ public class ShareImageUtils {
 		try {
 			is = new URL(imageUrl).openStream();
 			if (is.available() < 50 * 1024) {
-				return BitmapFactory.decodeStream(is);
+				BitmapFactory.Options opts = new BitmapFactory.Options();
+				// 设置显示效果为rbg565
+				opts.inPreferredConfig = Bitmap.Config.RGB_565;
+				// 设置图片可以被回收，创建Bitmap用于存储Pixel的内存空间在系统内存不足时可以被回收
+				opts.inPurgeable = true;
+				return BitmapFactory.decodeStream(is, null, opts);
 			}
 		} catch (IOException e) {
 			e.printStackTrace();
