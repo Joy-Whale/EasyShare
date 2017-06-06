@@ -3,7 +3,7 @@ apply plugin: 'com.android.library'
 apply from: '../build-tools/app-config-android.gradle'
 apply from: '../build-tools/ds-test.gradle'
 
-apply from: 'bintray-config.gradle'
+apply from: '../build-tools/bintray-config.gradle'
 
 dependencies {
     compile files('libs/mta-sdk-1.6.2.jar')
